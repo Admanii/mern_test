@@ -1,5 +1,6 @@
 const asyncHandler = require('express-async-handler')
 const Goal = require('../models/goalModel')
+const router = require('../routes/goalRoutes')
 // get goals
 // route:   GET /api/goals
 const getGoals = asyncHandler(async (req, res) => {
@@ -58,10 +59,16 @@ const deleteGoals = asyncHandler(async (req, res) => {
     res.status(200).json({id: req.params.id})
 })
 
+const registerRoute = async(req, res, next) => {
+    res.send("Register Route")
+    //console.log("Magic")
+}
+
 module.exports = {
     getGoals,
     postGoals,
     updateGoals,
-    deleteGoals
+    deleteGoals,
+    registerRoute,
 
 }
